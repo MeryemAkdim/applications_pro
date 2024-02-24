@@ -36,20 +36,6 @@
 
 @section('css')
     <style>
-        .required label::after{
-            content: '*';
-            color: red
-        }
-        .modal-body .required::after{
-            content: '*';
-            color: red
-        }
-        .dark-green{
-            color: green
-        }
-        .dark-warning{
-            color: rgb(219, 155, 18);
-        }
         .required::after{
             content: '*';
             color: red

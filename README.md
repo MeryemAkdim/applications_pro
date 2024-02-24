@@ -28,6 +28,9 @@ php artisan storage:link
  php artisan migrate:fresh --seed
 ```
  ```bash
+ php artisan db:seed
+```
+ ```bash
  php artisan test
 ```
 ## Admin Credentials

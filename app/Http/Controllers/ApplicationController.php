@@ -162,8 +162,18 @@ class ApplicationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Application $application)
     {
-        return 213;
+        try 
+        {
+            $application = $this->applicationService->delete($application);
+
+            return back()->with('success', 'Application Deleted');
+
+        } 
+        catch (\Exception $e) 
+        {
+            return back()->with('error', $e->getMessage());
+        }
     }
 }

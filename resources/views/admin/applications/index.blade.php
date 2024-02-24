@@ -57,12 +57,16 @@
                                     <a href="{{ url(Storage::url("$application->cv")) }}" target="_blank">(Link)</a>
                                 </td>
                                 <td>
-                                    <a href="{{ url("applications/$application->id/edit") }}"
-                                        class="btn btn-warning rounded-0">Edit
-                                    </a>
-                                    <a href="{{ url("applications/$application->id/destroy") }}"
-                                        class="btn btn-warning rounded-0">Delete
-                                    </a>
+                                    <div class="d-flex">
+                                        <a href="{{ url("applications/$application->id/edit") }}"
+                                            class="btn btn-warning rounded-0 mr-1">Edit
+                                        </a>
+                                        <form action="{{ route('applications.destroy', $application->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger rounded-0">Delete</button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

@@ -78,6 +78,22 @@ class ApplicationServiceTest extends TestCase
         $this->assertEquals($application->id, $foundApplication->id);
     }
 
-    // Add more tests for update and delete methods
+    public function testDeleteMethodRemovesApplication()
+    {
+        // Create an application instance in the database
+        $application = Application::factory()->create();
+    
+        // Ensure the application exists in the database
+        $this->assertDatabaseHas('applications', ['id' => $application->id]);
+    
+        // Instantiate the ApplicationService
+        $service = new ApplicationService();
+    
+        // Call the delete method
+        $service->delete($application);
+    
+        // Assert the application no longer exists in the database
+        $this->assertDatabaseMissing('applications', ['id' => $application->id]);
+    }
 }
 

@@ -20,7 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('applications', ApplicationController::class);
+Route::middleware('auth')->group(function(){
+    Route::resource('applications', ApplicationController::class);
+});
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

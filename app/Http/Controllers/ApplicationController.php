@@ -19,6 +19,7 @@ class ApplicationController extends Controller
     public function __construct(ApplicationService $applicationService)
     {
         $this->applicationService = $applicationService;
+        $this->middleware('auth')->except('store');
     }
     /**
      * Display a listing of the resource.

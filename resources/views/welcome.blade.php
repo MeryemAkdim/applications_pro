@@ -17,8 +17,8 @@
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col">
+        <div class="row justify-content-center mt-2">
+            <div class="col-md-8">
                 @include('inc.messages')
             </div>
         </div>
